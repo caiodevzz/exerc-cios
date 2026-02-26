@@ -39,10 +39,7 @@ public class funcionario {
         salario += salario * percentage / 100.0;
     }
 
-    @Override
     public String toString() {
-        return "funcionario{" +
-                "name='" + name + '\'' +
-                '}';
+        return "Nome: " + this.name + ", Salario: R$: " + this.salario;
     }
 }

@@ -23,23 +23,52 @@ public class cadastro_de_salario {
             int id = sc.nextInt();
 
             System.out.print("Nome: ");
-            String name = sc.nextLine();
             sc.nextLine();
+            String name = sc.nextLine();
+
 
             System.out.print("Salario: ");
             double salario = sc.nextDouble();
 
-            funcionarios.add(0 , new funcionario(id , name , salario));
+            funcionarios.add(new funcionario(id , name , salario));
 
         }
 
         System.out.print("Insira o ID do funcionario que tera aumento salarial: ");
 
-        int altercao = sc.nextInt();
+        int altercao = sc.nextInt() ;
 
-        funcionarios.indexOf(altercao);
+
+       funcionario func = null;
+
+       for (funcionario x : funcionarios) {
+           if (x.getId() == altercao) {
+               func = x;
+               break;
+           }
+       }
+
+
 
         System.out.print("Insira o aumento da porsetagem do salario: ");
+
+        double aumento = sc.nextDouble();
+
+        if (func == null) {
+            System.out.println("Id nao encontrado");
+        }else {
+            func.increaseSalary(aumento);
+        }
+
+        System.out.println("Lista com funcionarios com aumento: ");
+
+
+
+            for (funcionario x : funcionarios) {
+                System.out.println(x);
+            }
+
+
 
         }
     }
